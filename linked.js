@@ -26,8 +26,11 @@ const linkedList = () => {
 
     const prepend = (newValue) => {
         const newNode = node(newValue);
+        const oldHead = head;
         head = newNode;
+        head.nextNode = oldHead;
         length++;
+        return head;
     }   
 
     const size = () => {
@@ -40,7 +43,5 @@ const linkedList = () => {
 
 const myList = linkedList();
 
-myList.append(7);
-myList.append(8);
 
 console.log(myList.head);
