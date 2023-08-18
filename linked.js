@@ -100,7 +100,7 @@ const linkedList = () => {
             nodeStr += `( ${pointer.value} ) --> `;
             pointer = pointer.nextNode;
         }
-        return nodeStr += 'null';
+        return nodeStr += `( ${pointer.value} ) --> null`;
     }
 
     return{
