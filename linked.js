@@ -37,11 +37,43 @@ const linkedList = () => {
         return length;
     }
 
+    const getHeadNode = () => {
+        return head;
+    }
 
-    return{append, prepend, size, get head() { return head }}
+    const getTailNode = () => {
+        return tail;
+    }
+
+    const atIndex = (index) => {
+        let pointer = head;
+        while(index > 0) {
+            pointer = pointer.nextNode;
+            index--;
+        }
+        return pointer
+    }
+
+
+    return{
+        append, 
+        prepend, 
+        size, 
+        getHeadNode, 
+        getTailNode,
+        atIndex
+    }
 }
 
 const myList = linkedList();
 
+myList.append(4)
+myList.append(5)
+myList.append(6)
+myList.append(7)
+myList.prepend(3)
+myList.append(8);
+myList.prepend(2)
+myList.prepend(1)
 
-console.log(myList.head);
+console.log(myList.getHeadNode());
