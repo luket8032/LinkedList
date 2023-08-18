@@ -66,6 +66,17 @@ const linkedList = () => {
         length--;
     }
 
+    const contains = (value) => {
+        let pointer = head;
+        while(pointer.nextNode) {
+            if(value === pointer.value){
+                return true;
+            }
+            pointer = pointer.nextNode
+        }
+        return false
+    }
+
 
     return{
         append, 
@@ -74,7 +85,8 @@ const linkedList = () => {
         getHeadNode, 
         getTailNode,
         atIndex,
-        pop
+        pop,
+        contains
     }
 }
 
@@ -83,16 +95,13 @@ const myList = linkedList();
 myList.append(4);
 myList.append(5);
 myList.append(6);
+myList.append('balls');
 myList.append(7);
 myList.prepend(3);
 myList.append(8);
 myList.prepend(2);
 myList.prepend(1);
 
-myList.pop();
-myList.pop();
-myList.pop();
-
-console.log(myList.getTailNode());
+console.log(myList.getHeadNode());
 
 
