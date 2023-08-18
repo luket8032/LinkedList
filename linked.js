@@ -54,6 +54,18 @@ const linkedList = () => {
         return pointer
     }
 
+    const pop = () => {
+        let pointer = head;
+        let previous = head;
+        while(pointer.nextNode) {
+            previous = pointer
+            pointer = pointer.nextNode;
+        }
+        previous.nextNode = null;
+        tail = previous
+        length--;
+    }
+
 
     return{
         append, 
@@ -61,19 +73,26 @@ const linkedList = () => {
         size, 
         getHeadNode, 
         getTailNode,
-        atIndex
+        atIndex,
+        pop
     }
 }
 
 const myList = linkedList();
 
-myList.append(4)
-myList.append(5)
-myList.append(6)
-myList.append(7)
-myList.prepend(3)
+myList.append(4);
+myList.append(5);
+myList.append(6);
+myList.append(7);
+myList.prepend(3);
 myList.append(8);
-myList.prepend(2)
-myList.prepend(1)
+myList.prepend(2);
+myList.prepend(1);
 
-console.log(myList.getHeadNode());
+myList.pop();
+myList.pop();
+myList.pop();
+
+console.log(myList.getTailNode());
+
+
