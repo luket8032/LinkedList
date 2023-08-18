@@ -8,10 +8,19 @@ const linkedList = () => {
     let length = 0;
 
     const append = (newValue) => {
+        const newNode = node(newValue);
+        if(head === null) {
+            head = newNode;
+        }
+    }
 
+    const size = () => {
+        return length;
     }
 
 
-    return{}
+    return{append, size}
 }
+
+const myList = linkedList();
 
