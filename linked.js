@@ -12,7 +12,7 @@ const linkedList = () => {
         if(!head) {
             head = newNode;
             length++;
-            return head
+            return head;
         }
         let pointer = head;
         while(pointer.nextNode) {
@@ -51,18 +51,18 @@ const linkedList = () => {
             pointer = pointer.nextNode;
             index--;
         }
-        return pointer
+        return pointer;
     }
 
     const pop = () => {
         let pointer = head;
         let previous = head;
         while(pointer.nextNode) {
-            previous = pointer
+            previous = pointer;
             pointer = pointer.nextNode;
         }
         previous.nextNode = null;
-        tail = previous
+        tail = previous;
         length--;
     }
 
@@ -74,7 +74,7 @@ const linkedList = () => {
             }
             pointer = pointer.nextNode
         }
-        return false
+        return false;
     }
 
     const find = (value) => {
@@ -82,17 +82,26 @@ const linkedList = () => {
         let index = 0;
         while(pointer.nextNode) {
             if(value === pointer.value) {
-                return index
+                return index;
             }
             pointer = pointer.nextNode;
             index++;
         }
         if(value === pointer.value) {
-            return index
+            return index;
         }
-        return null
+        return null;
     }
 
+    const toString = () => {
+        let pointer = head;
+        let nodeStr = ""
+        while(pointer.nextNode) {
+            nodeStr += `( ${pointer.value} ) --> `;
+            pointer = pointer.nextNode;
+        }
+        return nodeStr += 'null';
+    }
 
     return{
         append, 
@@ -103,19 +112,20 @@ const linkedList = () => {
         atIndex,
         pop,
         contains,
-        find
+        find,
+        toString
     }
 }
 
 const myList = linkedList();
 
-myList.append(1)
-myList.append(2)
-myList.append(3)
-myList.append(4)
-myList.append(5)
-myList.append('ball')
+myList.append(1);
+myList.append(2);
+myList.append(3);
+myList.append(4);
+myList.append(5);
+myList.append('ball');
 
-console.log(myList.find('balls'));
+console.log(myList.toString());
 
 
